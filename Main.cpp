@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL.h>
+//comment to check gitignore works
 //Variables
 char quit;
 
