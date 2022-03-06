@@ -1,21 +1,20 @@
 #include <iostream>
 #include <SDL.h>
-//comment to check gitignore works
 //Variables
 char quit;
 
 
 int main(int argc, char** args) {
 	SDL_Init(SDL_INIT_EVERYTHING);
+	
 
-
-	//Window
+	//window
 	SDL_Window* window = SDL_CreateWindow("Solaroid", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
 
 	//Window Error
-	if (!window) { std::cout << "Window Did Not Window :(   ERROR: " << SDL_GetError() << std::endl; }
+	if (!window) { std::cout << "Window Did Not Window : /   ERROR: " << SDL_GetError() << std::endl; }
 	
-
+	
 
 	//Window Surface
 	SDL_Surface* windowSurface = SDL_GetWindowSurface(window);
@@ -26,6 +25,20 @@ int main(int argc, char** args) {
 
 	SDL_UpdateWindowSurface(window);
 	
+	SDL_Surface* image = SDL_LoadBMP("colin.bmp");
+
+
+
+
+	SDL_Rect dest;
+	dest.x = 100;
+	dest.y = 50;
+
+	int result = SDL_BlitSurface(image, NULL, windowSurface, &dest);
+
+	if (result < 0) {
+		// blit failed
+	}
 	
 	//Quit
 	std::cout << "Input X into the console to quit ";
@@ -34,7 +47,7 @@ int main(int argc, char** args) {
 		SDL_DestroyWindow(window);
 		window = NULL;
 		windowSurface = NULL;
-
+		SDL_FreeSurface(image);
 		SDL_Quit();
 	}
 	
