@@ -1,4 +1,4 @@
-package com.github.cynthion21x;
+package dev.cynthionkay;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
