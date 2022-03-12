@@ -1,8 +1,8 @@
-package com.github.cynthion21x;
+package dev.cynthionkay.solaroid;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.github.cynthion21x.Solaroid;
+import dev.cynthionkay.solaroid.Solaroid;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
