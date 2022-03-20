@@ -1,6 +1,5 @@
 package dev.cynthionkay;
 
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import dev.cynthionkay.Solaroid;
@@ -16,13 +15,14 @@ public class DesktopLauncher {
 
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 
-		String[] messages = {"Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these..", "You did this.", "Why are we here?", "Skill issue.", "You really think you can do this?"};
+		String[] messages = {"Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these..", "You did this.", "Why are we here?", "Skill issue.", "You really think you can do this?", "oh you thought", "why do i even bother", "w", "'1' + '1' = '11'"};
 
 		Random r = new Random();
 		int low = 0;
 		int high = messages.length;
 
 		config.setTitle("Solaroid: " + messages[r.nextInt(high-low) + low]);
+		config.setWindowIcon("");
 
 		config.useVsync(true);
 		config.setForegroundFPS(60);
@@ -42,10 +42,18 @@ public class DesktopLauncher {
 
 				System.out.println("look now i need to kill myself to care for your special needs :(");
 
+				String argsS = "";
+
+				for (String s : args) {
+
+					argsS = " " + s;
+
+				}
+
 				Runtime runtime = Runtime.getRuntime();
 
 				try {
-					Process proc = runtime.exec("java -jar Solaroid.jar");
+					Process proc = runtime.exec("java -jar Solaroid.jar " + "-XstartOnFirstThread" + argsS);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
