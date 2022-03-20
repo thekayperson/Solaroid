@@ -12,7 +12,7 @@ public class Solaroid extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("cat.png");
+		img = new Texture("/World/Terrain/green.png");
 	}
 
 	@Override
