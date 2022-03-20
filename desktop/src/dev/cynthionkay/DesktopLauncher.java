@@ -16,7 +16,7 @@ public class DesktopLauncher {
 
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 
-		String[] messages = {"Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these.."};
+		String[] messages = {"Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these..", "You did this.", "Why are we here?", "Skill issue.", "You really think you can do this?"};
 
 		Random r = new Random();
 		int low = 0;
@@ -72,6 +72,6 @@ public class DesktopLauncher {
 		}
 
 		new Lwjgl3Application(new Solaroid(), config);
-		
+
 	}
 }
