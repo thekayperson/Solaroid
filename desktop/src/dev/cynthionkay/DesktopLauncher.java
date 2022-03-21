@@ -12,9 +12,10 @@ public class DesktopLauncher {
 
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 
+		//the hd ones look bad because of ui scale
+		config.setWindowIcon("Ui/Icons/logoalt.png");
 
-
-		String[] messages = {"Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these..", "You did this.", "Why are we here?", "Skill issue.", "You really think you can do this?"};
+		String[] messages = {"Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these..", "You did this.", "Why are we here?", "Skill issue.", "You really think you can do this?", "'>,< Doubles", "^.^ Floats"};
 
 		Random r = new Random();
 		int low = 0;
