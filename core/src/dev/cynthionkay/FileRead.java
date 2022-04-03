@@ -1,33 +1,30 @@
 package dev.cynthionkay;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 //Please dont read this it is a travesty of justice
 public class FileRead {
 
 
-    public String theDEETS[];
-
+    ArrayList<String> theDEETS = new ArrayList<String>();
+    public int i = 0;
     public FileRead(String fileName){
-        
-        //This is a variable
-        String theDEETS[] = new String[0];
-       try{
 
-            File fileToRead = new File(fileName);
+        //This is a variable
+
+        try{
+            int i = 1;
+            File fileToRead = new File("/home/kay/Documents/Solaroid/assets/file.txt");
             Scanner fileReader = new Scanner(fileToRead);
             while(fileReader.hasNextLine()){
-                //this might be a variable??
-                String arrNew[] = new String[theDEETS.length + 1];
+                //this might be a variable?
                 String currentData = fileReader.nextLine();
-                int i;
-                for(i = 0; i < theDEETS.length; i++) {
-                    arrNew[i] = theDEETS[i];
-                }
-                arrNew[i] = currentData;
+                theDEETS.add(currentData);
 
             }
-             
+            fileReader.close();
        }
         catch(FileNotFoundException EveryoneCallsTheirExceptionEButImTooCoolForThat){
 
@@ -35,8 +32,10 @@ public class FileRead {
             EveryoneCallsTheirExceptionEButImTooCoolForThat.printStackTrace();
 
         }
-        
+
+
     }
+
 
 }
 //have fun refactoring this lol

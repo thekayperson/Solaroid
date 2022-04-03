@@ -5,14 +5,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import dev.cynthionkay.FileRead;
+
+import java.io.File;
 import java.util.Random;
 
 public class Solaroid extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture grass;
 	Texture water;
-	int x = 0;
-	int y = 0;
+	FileRead readFile = new FileRead("file.txt");
+	int x = Integer.parseInt(readFile.theDEETS.get(0));
+	int y = Integer.parseInt(readFile.theDEETS.get(1));
 	int value = 0;
 	int c = 0;
 
@@ -21,15 +24,14 @@ public class Solaroid extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		grass = new Texture("grass.png");
 		water = new Texture("water.png");
-		FileRead readFile = new FileRead("file.txt");
-		System.out.println(readFile.theDEETS[1]);
+		System.out.println(readFile.theDEETS);
 	}
 
 	@Override
 	public void render() {
 		ScreenUtils.clear(1, 1, 1, 1);
 		batch.begin();
-		batch.draw(grass, 100, 100);
+		batch.draw(grass, x, y);
 		batch.end();
 
 	}
