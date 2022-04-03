@@ -4,7 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-
+import dev.cynthionkay.FileRead;
 import java.util.Random;
 
 public class Solaroid extends ApplicationAdapter {
@@ -21,33 +21,15 @@ public class Solaroid extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		grass = new Texture("grass.png");
 		water = new Texture("water.png");
+		FileRead readFile = new FileRead("file.txt");
+		System.out.println(readFile.theDEETS[1]);
 	}
 
 	@Override
 	public void render() {
 		ScreenUtils.clear(1, 1, 1, 1);
 		batch.begin();
-		Random r = new Random();
-
-		for(int ii=0; ii<1000; ii++) {
-			for (int i = 0; i < 20; i++) {
-
-				if(value == 1) {
-					batch.draw(grass, x, y);
-				}
-				if(value == 2) {
-					batch.draw(water, x, y);
-				}
-				y += 32;
-
-			}
-			y = 0;
-			x += 32;
-			value = r.nextInt(2);
-
-		}
-		x = 0;
-		y = 0;
+		batch.draw(grass, 100, 100);
 		batch.end();
 
 	}
