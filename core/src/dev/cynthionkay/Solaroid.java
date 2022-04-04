@@ -21,7 +21,7 @@ public class Solaroid extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		grass = new Texture("grass.png");
 		water = new Texture("water.png");
-		System.out.println(readFile.theDEETS);
+		System.out.println(readFile.theDEETS + "sad");
 	}
 
 	@Override
