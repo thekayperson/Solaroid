@@ -11,25 +11,30 @@ public class Solaroid extends ApplicationAdapter {
 	Texture grass;
 	Texture water;
 	FileRead readFile = new FileRead("file.txt");
-	int x = Integer.parseInt(readFile.theDEETS.get(0));
-	int y = Integer.parseInt(readFile.theDEETS.get(1));
-	int value = 0;
-	int c = 0;
-
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		grass = new Texture("grass.png");
 		water = new Texture("water.png");
-		System.out.println(readFile.theDEETS + "sad");
-		//comment
+		System.out.println(readFile.theDEETS);
+
 	}
 
 	@Override
 	public void render() {
-		ScreenUtils.clear(1, 1, 1, 1);
+		int DEETSValue = 0;
 		batch.begin();
-		batch.draw(grass, x, y);
+		for(int i = 0; i<readFile.theDEETS.size() / 2; i++){
+			int x = Integer.parseInt(readFile.theDEETS.get(DEETSValue));
+			DEETSValue += 1;
+			int y = Integer.parseInt(readFile.theDEETS.get(DEETSValue));
+			batch.draw(grass, x, y);
+			DEETSValue += 1;
+		}
+
+		ScreenUtils.clear(1, 1, 1, 1);
+
+
 		batch.end();
 
 	}
