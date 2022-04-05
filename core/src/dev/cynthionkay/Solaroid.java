@@ -43,14 +43,14 @@ public class Solaroid extends ApplicationAdapter {
 			else if(blockType == 2){batch.draw(water, x, y);}
 			else if(blockType == 3){batch.draw(sand, x, y);}
 		}
-		/*
+		//Custom mouse cursor moment
 		Pixmap cursorMap = new Pixmap(Gdx.files.internal("cursor_1.png"));
-		int xHotSpot = 55;
-		int yHotSpot = 276;
+		int xHotSpot = 8;
+		int yHotSpot = 27;
 		Cursor cursor = Gdx.graphics.newCursor(cursorMap, xHotSpot, yHotSpot);
 		Gdx.graphics.setCursor(cursor);
 		cursorMap.dispose();
-		*/
+
 
 		ScreenUtils.clear(1, 1, 1, 1);
 
