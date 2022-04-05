@@ -37,6 +37,7 @@ public class SaveFileRead {
                 finalDEETS.add(part2);
                 finalDEETS.add(part3);
             }
+            System.out.println(theDEETS);
             System.out.println(finalDEETS);
 
        }
