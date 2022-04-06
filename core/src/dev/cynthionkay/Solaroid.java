@@ -38,10 +38,13 @@ public class Solaroid extends ApplicationAdapter {
 
 			int x = Integer.parseInt(saveFileRead.finalDEETS.get(finalDeetsValue));
 			finalDeetsValue += 1;
+			System.out.println(finalDeetsValue);
 			int y = Integer.parseInt(saveFileRead.finalDEETS.get(finalDeetsValue));
 			finalDeetsValue += 1;
+			System.out.println(finalDeetsValue);
 			int blockType = Integer.parseInt(saveFileRead.finalDEETS.get(finalDeetsValue));
-			finalDeetsValue += 1;
+			//finalDeetsValue += 1;
+			System.out.println(finalDeetsValue);
 			if(blockType == 1){batch.draw(grass, x, y);}
 			else if(blockType == 2){batch.draw(water, x, y);}
 			else if(blockType == 3){batch.draw(sand, x, y);}
