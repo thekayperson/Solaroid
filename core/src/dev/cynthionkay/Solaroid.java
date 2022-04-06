@@ -54,8 +54,8 @@ public class Solaroid extends ApplicationAdapter {
 
 		//Custom mouse cursor moment
 		Pixmap cursorMap = new Pixmap(Gdx.files.internal("cursor_1.png"));
-		int xHotSpot = 8;
-		int yHotSpot = 27;
+		int xHotSpot = 6;
+		int yHotSpot = 11;
 		Cursor cursor = Gdx.graphics.newCursor(cursorMap, xHotSpot, yHotSpot);
 		Gdx.graphics.setCursor(cursor);
 		cursorMap.dispose();
