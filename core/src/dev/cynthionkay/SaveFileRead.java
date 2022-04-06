@@ -1,22 +1,23 @@
 package dev.cynthionkay;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 //Please dont read this it is a travesty of justice
-public class FileRead {
+public class SaveFileRead {
 
 
     ArrayList<String> theDEETS = new ArrayList<String>();
+    ArrayList<String> finalDEETS = new ArrayList<>();
     public int i = 0;
-    public FileRead(String fileName){
+    public SaveFileRead(String fileName){
 
         //This is a variable
 
         try{
+            //Reads all lines of file and inserts into an array
             int i = 1;
-            File fileToRead = new File("/home/kay/Documents/Solaroid/assets/file.txt");
+            File fileToRead = new File(fileName);
             Scanner fileReader = new Scanner(fileToRead);
             while(fileReader.hasNextLine()){
                 //this might be a variable?
@@ -25,6 +26,20 @@ public class FileRead {
 
             }
             fileReader.close();
+            //String should be split here
+            for(int j = 0;j<theDEETS.size(); j++) {
+                String currentIterationSplit = theDEETS.get(j);
+                String[] parts = currentIterationSplit.split("/");
+                String part1 = parts[0];
+                String part2 = parts[1];
+                String part3 = parts[2];
+                finalDEETS.add(part1);
+                finalDEETS.add(part2);
+                finalDEETS.add(part3);
+            }
+            System.out.println(theDEETS);
+            System.out.println(finalDEETS);
+
        }
         catch(FileNotFoundException EveryoneCallsTheirExceptionEButImTooCoolForThat){
 

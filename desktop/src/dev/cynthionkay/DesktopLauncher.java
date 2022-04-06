@@ -16,6 +16,7 @@ public class DesktopLauncher {
 		config.setWindowIcon("Ui/Icons/logoalt.png");
 
 		//we should make this like a file at some point
+		//yeah we should totally do that except for the fact that i CANNOT BE FUCKING ASKED about it
 		String[] messages = {"sneaky", "Kinda Cringe Ngl", "A Sad Game", "For People Without A Life", "Just No", "Imagine having the imagination to write these..", "You did this.", "Why are we here?", "Skill issue.", "You really think you can do this?", "'>,< Doubles", "^.^ Floats", "For elite gamers", ">.<", "Powered by java", "photocynthesis", "o-kay'", "Imagine having the imagination to be able to imagine having the imagination to write these..", "bruh"};
 
 		Random r = new Random();
