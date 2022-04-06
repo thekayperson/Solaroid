@@ -1,16 +1,17 @@
-package dev.cynthionkay;
+package dev.cynthionkay.utils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 //Please dont read this it is a travesty of justice
-public class SaveFileRead {
+//At some point i will use this file to make the list of messages into a file but not right now
+public class StandardFileRead {
 
 
     ArrayList<String> theDEETS = new ArrayList<String>();
     ArrayList<String> finalDEETS = new ArrayList<>();
     public int i = 0;
-    public SaveFileRead(String fileName){
+    public StandardFileRead(String fileName){
 
         //This is a variable
 
@@ -26,6 +27,8 @@ public class SaveFileRead {
 
             }
             fileReader.close();
+            /* this is literally just the save file reader but with some parts commented out for simple file reading
+
             //String should be split here
             for(int j = 0;j<theDEETS.size(); j++) {
                 String currentIterationSplit = theDEETS.get(j);
@@ -37,10 +40,9 @@ public class SaveFileRead {
                 finalDEETS.add(part2);
                 finalDEETS.add(part3);
             }
-            System.out.println(theDEETS);
             System.out.println(finalDEETS);
-
-       }
+            */
+        }
         catch(FileNotFoundException EveryoneCallsTheirExceptionEButImTooCoolForThat){
 
             System.out.println("lmao fucking dumbass you cant even read a file.");
@@ -53,118 +55,3 @@ public class SaveFileRead {
 
 
 }
-//have fun refactoring this lol
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//hi
-//i drank a cup of coffee before programming this
-//it was not a good idea
-//can you make this a multi line comment?
-//i cant remember how to breathe

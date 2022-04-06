@@ -1,4 +1,4 @@
-package dev.cynthionkay;
+package dev.cynthionkay.testutils;
 
 public class Testing {
     public static void main(String[] args) {

@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-
-import java.io.FileNotFoundException;
+import dev.cynthionkay.utils.SaveFileRead;
 
 
 public class Solaroid extends ApplicationAdapter {
