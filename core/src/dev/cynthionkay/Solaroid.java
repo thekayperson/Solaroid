@@ -6,68 +6,109 @@ import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.utils.ScreenUtils;
 import dev.cynthionkay.utils.SaveFileRead;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 
-public class Solaroid extends ApplicationAdapter {
 
+public class Solaroid extends ApplicationAdapter implements InputProcessor {
+	Texture img;
+	TiledMap tiledMap;
+	OrthographicCamera camera;
+	TiledMapRenderer tiledMapRenderer;
 
-	SpriteBatch batch;
-	Texture grass;
-	Texture water;
-	Texture sand;
-	SaveFileRead saveFileRead = new SaveFileRead("save.txt");
 	@Override
-	public void create() {
+	public void create () {
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
 
-		batch = new SpriteBatch();
-		grass = new Texture("grass.png");
-		water = new Texture("water.png");
-		sand = new Texture("sand.png");
-
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false,w,h);
+		camera.update();
+		tiledMap = new TmxMapLoader().load("tilemap.tmx");
+		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override
-	public void render() {
-
-
-		batch.begin();
-		int finalDeetsValue = 0;
-		for(int i = 0; i<saveFileRead.theDEETS.size(); i++){
-
-			int x = Integer.parseInt(saveFileRead.finalDEETS.get(finalDeetsValue));
-			finalDeetsValue += 1;
-			System.out.println(finalDeetsValue);
-			int y = Integer.parseInt(saveFileRead.finalDEETS.get(finalDeetsValue));
-			finalDeetsValue += 1;
-			System.out.println(finalDeetsValue);
-			int blockType = Integer.parseInt(saveFileRead.finalDEETS.get(finalDeetsValue));
-			//finalDeetsValue += 1;
-			System.out.println(finalDeetsValue);
-			if(blockType == 1){batch.draw(grass, x, y);}
-			else if(blockType == 2){batch.draw(water, x, y);}
-			else if(blockType == 3){batch.draw(sand, x, y);}
-			else{System.out.println("you done and fucked it mate");}
-		}
-
-		ScreenUtils.clear(1, 1, 1, 1);
-		batch.end();
-
-		//Custom mouse cursor moment
-		Pixmap cursorMap = new Pixmap(Gdx.files.internal("cursor_1.png"));
-		int xHotSpot = 6;
-		int yHotSpot = 11;
-		Cursor cursor = Gdx.graphics.newCursor(cursorMap, xHotSpot, yHotSpot);
-		Gdx.graphics.setCursor(cursor);
-		cursorMap.dispose();
+	public void render () {
+		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		camera.update();
+		tiledMapRenderer.setView(camera);
+		tiledMapRenderer.render();
 	}
+
 	@Override
-	public void dispose () {
+	public boolean keyDown(int keycode) {
+		if(keycode == Input.Keys.LEFT)
+			camera.translate(-16,0);
+		if(keycode == Input.Keys.RIGHT)
+			camera.translate(16,0);
+		if(keycode == Input.Keys.UP)
+			camera.translate(0,16);
+		if(keycode == Input.Keys.DOWN)
+			camera.translate(0,-16);
 
-		batch.dispose();
-		grass.dispose();
-		water.dispose();
+
+
+		return false;
 	}
+
+	@Override
+	public boolean keyUp(int keycode) {
+
+		if(keycode == Input.Keys.NUM_1)
+			tiledMap.getLayers().get(0).setVisible(!tiledMap.getLayers().get(0).isVisible());
+		if(keycode == Input.Keys.NUM_2)
+			tiledMap.getLayers().get(1).setVisible(!tiledMap.getLayers().get(1).isVisible());
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char character) {
+
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		return false;
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		return false;
+	}
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(float amountX, float amountY) {
+		return false;
+	}
+
+
 
 }
