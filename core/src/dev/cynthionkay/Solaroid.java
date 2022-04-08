@@ -31,9 +31,6 @@ public class Solaroid extends ApplicationAdapter {
 	public SpriteBatch batch;
 	public Texture texture;
 
-	//ima just keep this here ¯\_(ツ)_/¯
-	Cursor SolarCursor = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("Ui/Buttons/Cursors/cursor_1.png")), 6, 11);
-
 	@Override
 	public void create () {
 
