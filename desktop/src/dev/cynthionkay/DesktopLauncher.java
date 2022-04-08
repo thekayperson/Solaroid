@@ -1,9 +1,13 @@
 package dev.cynthionkay;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.badlogic.gdx.graphics.Cursor;
+import com.badlogic.gdx.graphics.Pixmap;
 import dev.cynthionkay.Solaroid;
 import dev.cynthionkay.utils.StandardFileRead;
+import com.badlogic.gdx.input.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -19,7 +23,7 @@ public class DesktopLauncher {
 		config.setWindowIcon("Ui/Icons/logoalt.png");
 
 		//reaf from file convert to array and append it to the end of the title
-		StandardFileRead fileRead = new StandardFileRead("FunkyMessages.txt");
+		StandardFileRead fileRead = new StandardFileRead("Ui/Messages/FunkyMessages.txt");
 		ArrayList<String> enhancedMessages = fileRead.theDEETS;
 		String[] messages = enhancedMessages.toArray(new String[0]);
 
@@ -34,6 +38,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 
 		new Lwjgl3Application(new Solaroid(), config);
-		
+
 	}
 }
