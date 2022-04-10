@@ -1,4 +1,4 @@
-package dev.cynthionkay.Generation;
+package dev.cynthionkay.generation;
 
 import java.util.Random;
 

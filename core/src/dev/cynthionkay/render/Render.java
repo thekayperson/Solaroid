@@ -6,8 +6,5 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Render extends ApplicationAdapter{
-
-    //Completely redundant and useless file but might have a use later
-    //and anyway deleting it would involve effort like who has any of that
-
+    //Nothing to see here
 }
