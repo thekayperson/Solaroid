@@ -13,10 +13,10 @@ class PlayState extends FlxState
 		// var text = new FlxText(10, 10, 100, "Bruh");
 		// add(text);
 
-		grass = new Tile(20, 20, 16, 16, "assets/images/grass.png", false);
-		add(grass);
-		//player = new Player(20, 20);
-		//add(player);
+		//grass = new Tile(20, 20, 16, 16, "assets/images/grass.png", false);
+		//add(grass);
+		player = new Player(20, 20);
+		add(player);
 		
 		super.create();
 	}
